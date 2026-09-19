@@ -1,0 +1,74 @@
+WGU D833 Ransomware Response & Recovery
+Noah L. Myers
+Academic simulation
+
+01 / The problem
+
+Shared storage unavailable.Business operations disrupted.
+
+The lab scenario began with inaccessible or altered files on a shared volume hosted by DC01. Departmental users could not reliably open or save files, and billing staff could not access claim data. My objective was to establish scope, contain the observed threat, restore service, and document the remaining risks.
+
+
+
+02 / Investigation
+
+Correlating evidence across systems.
+
+I reviewed incident tickets and correlated Elastic/Kibana web-server, firewall, and ransomware-related logs. Suspicious web requests preceded encryption indicators on DC01, supporting a possible web-origin attack path.
+
+The evidence supported a likely sequence of events, but did not establish the exact vulnerable component, exploit, or lateral-movement mechanism.I compared alternate hypotheses and preserved the distinction between observed evidence and inference. The investigation also left data exposure unresolved; the collected evidence did not establish exfiltration.
+
+
+
+03 / Response & recovery
+
+Contain first. Then validate recovery.
+
+Block the observed communication path
+
+Applied bidirectional pfSense rules for the observed attacker address, enabled packet logging, and cleared active firewall states.
+
+
+
+Restore the affected shared volume
+
+Used Windows Server Backup to restore the shared volume from a known-good backup after containment.
+
+
+
+Verify service restoration
+
+Checked restored folders and readable files. The lab’s final ticket confirmed that users could access and save data normally.
+
+
+
+
+
+04 / Strategic improvement
+
+Translate incident lessons into priorities.
+
+The follow-on proposal focused on two residual risks: recurrence through an unresolved public-facing web weakness and failure of future backup recovery.
+
+Web security & vulnerability management
+
+Proposed vulnerability scanning, patch verification, secure configuration review, WAF or reverse-proxy protections, centralized logs, and tracked remediation.
+
+Ransomware-resilient recovery
+
+Proposed immutable or offline copies, isolated backup credentials, monitored jobs, agreed recovery targets, and scheduled restore testing.
+
+The plan included a proposed 12-week sequence for design, testing, deployment, and monitoring, with stakeholder ownership, implementation risks, and maintenance activities. These controls were recommendations, not completed production deployments.
+
+
+
+05 / Takeaways
+
+Recovery is a milestone.Resilience is ongoing work.
+
+The lab demonstrated immediate containment and successful service restoration. It also showed why a successful restore does not resolve an unknown entry point or prove that data was never accessed. My deliverables connected technical findings, response decisions, residual risk, and practical recommendations.
+
+Evidence analysisIncident documentationRisk assessmentRecovery validationThis portfolio summary describes an academic simulation completed for Western Governors University. NorthSound Health Systems is the lab scenario organization; this was not a production client engagement.
+
+
+

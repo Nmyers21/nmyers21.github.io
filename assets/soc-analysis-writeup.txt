@@ -1,0 +1,20 @@
+SOC Automation & Detection
+Noah L. Myers
+https://github.com/Nmyers21/SOC-L1-Skills-Demo
+
+A Python lab for practicing Windows event analysis, risk-based triage, attack-pattern correlation, and structured incident documentation.
+
+Give security events useful context.
+Individual log entries rarely explain a complete incident. This project uses generated Windows security events to practice grouping related activity, prioritizing alerts, and documenting the evidence an analyst would review.
+
+Generate → analyze → correlate → document.
+Sample event data feeds a Python analysis workflow and alert-triage engine. The workflow evaluates event severity, source and account context, timing, and related activity, then produces structured analysis results and incident documentation.
+
+Recognize patterns across Windows events.
+The project covers failed and successful logons, privilege assignments, account creation, and process creation. Its simplified rules look for repeated failed authentication, unusual privilege activity, and authentication across multiple systems. Findings include MITRE ATT&CK labels to organize investigation context.
+
+A consistent starting point for investigation.
+Outputs capture prioritized findings, risk scores, classifications, and escalation context. The project connects Python automation with practical log interpretation and concise reporting, using generated data to make the workflow repeatable.
+
+A simulated dataset, not live monitoring.
+The lab uses static generated events and simplified correlation. Rule matches and technique labels need analyst validation; they do not prove a compromise or measure production detection accuracy. Live SIEM integration and broader telemetry are outside the demonstrated scope.

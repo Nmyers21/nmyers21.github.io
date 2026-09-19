@@ -1,0 +1,20 @@
+AI Red Team Platform
+Noah L. Myers
+https://github.com/Nmyers21/ai-redteam-platform
+
+A deterministic workflow for generating adversarial cases, replaying model responses, and producing consistent evaluation artifacts.
+
+Make evaluations repeatable.
+Adversarial testing is difficult to compare when prompts, scoring, and reporting change between runs. This prototype organizes the process into reproducible stages so the same cases can be replayed when a model or mitigation changes.
+
+Generate → replay → evaluate → report.
+Fixed seeds drive deterministic case generation. A runner captures responses from mock or OpenAI-compatible chat endpoints. A rule-based evaluator scores cases, and a summarizer produces aggregate reports with optional baseline comparison deltas.
+
+Separate risk signals from observed behavior.
+Attack-only inputs receive attack-surface and persistence risk scores; observed failure fields remain unset when there is no model response. Response-aware evaluation uses deterministic heuristics to flag likely refusal behavior, instruction-hierarchy confusion, and multi-turn safeguard degradation.
+
+Artifacts that can be inspected and compared.
+The workflow produces JSON case data, model transcripts, per-case scores, and JSON or Markdown summaries. Documented scope, threat model, and methodology explain what the experiment measures. Safe structural variants and mutation metadata support reproducibility without distributing harmful payloads.
+
+A research prototype with a defined scope.
+The evaluator is heuristic, not a definitive judgment of model safety. The current project supports mock and OpenAI-compatible chat completion endpoints, and does not provide a production dashboard, experiment queue, or exhaustive framework coverage.
